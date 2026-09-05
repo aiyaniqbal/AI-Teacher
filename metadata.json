@@ -1,0 +1,6 @@
+{
+  "name": "EduMind — Your Personal AI Teacher",
+  "description": "EduMind is an AI-powered personalized teacher that understands study materials, creates adaptive lessons, teaches via an AI avatar with live transcripts and voice, asks interactive questions, adapts in real-time, and tracks mastery.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1b26;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #495057;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5c7cfa;
+}
+
+/* Body styles */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #0d1117;
+  color: #e6edf3;
+  min-height: 100vh;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #5c7cfa, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(92, 124, 250, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(92, 124, 250, 0.15);
+}
+
+/* Animated background */
+.bg-animated {
+  background: linear-gradient(-45deg, #0d1117, #161b22, #1a1b2e, #0d1117);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Avatar animation */
+@keyframes avatarPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.avatar-speaking {
+  animation: avatarPulse 1.5s ease-in-out infinite;
+}
+
+/* Progress bar */
+.progress-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5c7cfa, #ff9800);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* Typing animation */
+.typing-dot {
+  animation: typingDot 1.4s infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-5px); }
+}
+
+/* Transcript line animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.transcript-line {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+/* Button hover effect */
+.btn-primary {
+  @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary-500/25 hover:scale-105 active:scale-95;
+}
+
+.btn-secondary {
+  @apply bg-dark-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-dark-600 hover:scale-105 active:scale-95;
+}
+
+.btn-accent {
+  @apply bg-gradient-to-r from-accent-500 to-accent-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-accent-500/25 hover:scale-105 active:scale-95;
+}
+
+/* Input styles */
+.input-field {
+  @apply w-full bg-dark-800/50 border border-dark-600/50 rounded-xl px-4 py-3 text-white placeholder-dark-400 focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-all duration-200;
+}
+
+/* Card styles */
+.card {
+  @apply glass-card p-6;
+}
+
+/* Tag/badge */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.badge-primary {
+  @apply badge bg-primary-500/20 text-primary-300 border border-primary-500/30;
+}
+
+.badge-accent {
+  @apply badge bg-accent-500/20 text-accent-300 border border-accent-500/30;
+}
+
+.badge-success {
+  @apply badge bg-green-500/20 text-green-300 border border-green-500/30;
+}
+
+.badge-danger {
+  @apply badge bg-red-500/20 text-red-300 border border-red-500/30;
+}
+
+/* Visual board */
+.visual-board {
+  background: linear-gradient(135deg, #1a1b26 0%, #0d1117 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  min-height: 200px;
+}
+
+/* Quiz option */
+.quiz-option {
+  @apply p-4 rounded-xl border border-dark-600/50 bg-dark-800/30 cursor-pointer transition-all duration-200 hover:border-primary-500/50 hover:bg-primary-500/10;
+}
+
+.quiz-option.selected {
+  @apply border-primary-500 bg-primary-500/20;
+}
+
+.quiz-option.correct {
+  @apply border-green-500 bg-green-500/20;
+}
+
+.quiz-option.incorrect {
+  @apply border-red-500 bg-red-500/20;
+}
+
+/* Flashcard flip */
+.flashcard {
+  perspective: 1000px;
+  height: 200px;
+}
+
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flashcard.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.flashcard-back {
+  transform: rotateY(180deg);
+}
+
+/* Mindmap node */
+.mindmap-node {
+  @apply px-4 py-2 rounded-xl border border-primary-500/30 bg-primary-500/10 text-primary-300 text-sm font-medium;
+}
+
+/* Report chart placeholder */
+.chart-bar {
+  @apply rounded-t-lg transition-all duration-500 ease-out;
+  min-height: 20px;
+}
+
+/* Notification toast */
+.toast {
+  @apply fixed bottom-4 right-4 z-50 glass-card p-4 rounded-xl shadow-lg;
+  animation: slideUp 0.3s ease-out;
+}
+
+/* Back button */
+.back-button {
+  @apply flex items-center gap-2 text-dark-400 hover:text-white transition-colors duration-200 mb-4;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    @apply p-4;
+  }
+}
